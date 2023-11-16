@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:BasePopup
+    x:Class="DemoPopup.BaseBottomPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:popup="clr-namespace:DemoPopup"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill">
+    <Grid RowDefinitions="*,*">
+        <Grid>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CancelCommnad}" />
+            </Grid.GestureRecognizers>
+        </Grid>
+        <Grid
+            x:Name="ContentContainer"
+            Grid.Row="1"
+            BackgroundColor="White"
+            RowDefinitions="Auto,1,*">
+            <Label
+                Padding="{StaticResource PaddingMedium_X_Large_Y}"
+                FontFamily="OpenSansSemibold"
+                FontSize="Medium"
+                Text="{Binding PopupTitle}" />
+            <BoxView
+                Grid.Row="1"
+                HeightRequest="0.5"
+                Color="{StaticResource Gray200}" />
+            <ContentView x:Name="ContentViewPopup" Grid.Row="2" />
+        </Grid>
+    </Grid>
+</popup:BasePopup>
